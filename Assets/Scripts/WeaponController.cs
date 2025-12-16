@@ -30,8 +30,11 @@ public class WeaponController : MonoBehaviour
         {
             return;
         }
+
         Weapon weapon = weapons[currentWeaponIndex].GetComponent<Weapon>();
         nextFireTime = Time.time + weapon.fireRate;
+        weapon.ShotShound.Play();
+        weapon.animator.Play("DesertEagleShot", 0, 0f);
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hit, 100f))
         {
