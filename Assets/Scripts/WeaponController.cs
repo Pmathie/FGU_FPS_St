@@ -35,10 +35,12 @@ public class WeaponController : MonoBehaviour
         nextFireTime = Time.time + weapon.fireRate;
         weapon.ShotShound.Play();
         weapon.animator.Play("DesertEagleShot", 0, 0f);
+        weapon.ps.Play();
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hit, 100f))
         {
             Debug.Log("Hit" + hit.transform.name);
+            Instantiate(weapon.hitEffect, hit.point, Quaternion.identity);
         }
     }
 }

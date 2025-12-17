@@ -7,5 +7,7 @@ public class Weapon : MonoBehaviour
     public float fireRate;
     public AudioSource ShotShound;
     public Animator animator;
+    public ParticleSystem ps;
+    public GameObject hitEffect;
 
 }
